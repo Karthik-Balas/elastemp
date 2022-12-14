@@ -45,4 +45,6 @@ python command : python3 elastic_input.py --operations get_elastic
       (ii)  compliance_matrix.txt - Compliance matrix will be created\
       (iii) moduli.txt            - A text file with different moduli (K, E, G, H, nu, pugh) values created\
       (iv)  stability_criteria.txt - A file which checks the mechanical stability criteria of materials. 
+      
+ ## Getting thermal expansion coefficient
  

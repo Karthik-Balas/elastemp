@@ -71,8 +71,55 @@ python command : python3 elastic_input.py --operations get_elastic
  1. The force constants are extracted by phonopy and QHA calculations are done to get Helmholtz energies. Birch-murnaghan equation of state is fit to get equilibrium volumes at different temps.
  2. The following files are written to results_dir.<br/>
     a. volume_temp.txt - file containing equilibrium volumes, thermal expansion coefficient at all temperatures.\
-    b. Plot of thermal expansion coefficient vs temperature.\
+    b. Plot of thermal expansion coefficient vs temperature.
  3. The scaling factor of lattice parameters corresponding to the structure at tmax is calculated. 
  
- ## Getting elastic constants at high temperature. 
- 
+ ## Getting elastic constants at high temperature (Steps 5-9). 
+  
+  This has 2 submodules - getting zero temp enthalpies of structure with lattice parameters corresponding to tmax, getting elastic constants at tmax and interpoltaing them to all temperatures t<tmax. 
+  
+  ### Step 5: This makes the folders for running vasp calculations to get zero temp enthalpies. 
+  
+  python command : python3 elastic_input.py --operations make_temp_static
+  
+  1. This creates subfolders in deformation_i (deformation-1,..deformation-n) folders.
+  2. Users needs to run vasp calculations in these sub folders. 
+  
+  ### Step 6: Getting zero temp. enthalpies
+  
+  python command : python3 elastic_input.py --operations get_temp_static
+  
+  1. This extracts the zero temp. enthalpies and stores them in ZPE.txt files as enthalpy/atom. 
+  
+  ### Step 7: This creates the folders for running phonon calculations in each deformation folder. 
+  
+  python command : python3 elastic_input.py --operations make_dynamic
+  
+  1. This creates the subfolders (Phonon_calculation) in each deformation folder and copies the ZPE.txt file to be saved here.
+  2. User needs to run DFPT calculations similar to the deformation-bulk folder.
+
+   ### Step 8: This extracts the force constants after phonon calculations are run in each deformation folder.
+   
+   python command: python3 elastic_input.py --operations get_dynamic
+   
+   1. This extracts the force constants from phonon calculations. 
+
+   ### Step 9: Extracting the elastic constants as a function of temperature. 
+   
+   python command : python3 elastic_input.py --operations get_thermal
+   
+   1. This runs phonon QHA calculations in each phonon calculation folder, fits them to a polynomial of strain to get elastic constants at tmax.
+   2. Linear interpolation is done using elastic constants at 0K and tmax to get elastic constants, and subsequently moduli, at all temperatues in between. 
+   3. In each deformation folder, a plot of energy-strain at tmax is created.
+   4. In results_dir, moduli_plots folder which has plots of Cij, E, G, H, nu, K as a function of temperature are created. Csv files with the adiabatic and isothermal elastic constants at each temperature is also stored. 
+
+# Limitations :
+1. Isotropic linear expansion coefficient assumption. 
+2. At higher temperatures, for 'softer' materials, fitting can be bad. Users need to experiment with supercell size and Kpoint convergence. 
+
+# Citing our work
+
+If you use our work, please cite the following paper in your work. 
+
+'Currently unavailable'
+

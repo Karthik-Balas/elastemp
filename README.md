@@ -16,4 +16,4 @@ To run vasp calculations, user needs to input
 # Workflow
 
 
-<img src="https://user-images.githubusercontent.com/120595580/207714085-196181cf-5f77-46b5-9c53-b64c73da9e68.png" width="400" height="400">
+<img src="https://user-images.githubusercontent.com/120595580/207714085-196181cf-5f77-46b5-9c53-b64c73da9e68.png" width="600" height="600">

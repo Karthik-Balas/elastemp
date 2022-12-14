@@ -38,7 +38,7 @@ python command : python3 elastic_input.py --operations make_elastic
 
 python command : python3 elastic_input.py --operations get_elastic
 
-1. Elastemp extracts enthalpies from folders and outputs results to results_dir. The files in results_dir are \ 
+1. Elastemp extracts enthalpies from folders and outputs results to results_dir. The files in results_dir are__
    a. In each deformation folder, a plot of energy vs strain, fitting function and curvature constant for fitting.\
    b. In results_dir the following files will be created\
       (i)   stiffness_matrix.txt - Stiffness matrix will be created\

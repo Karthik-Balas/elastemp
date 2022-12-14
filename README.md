@@ -14,3 +14,5 @@ To run vasp calculations, user needs to input
 7. tmax.txt (optional) - a default tmax.txt file with defualt value of 1000 will be provided. This file contains the maximum temperature at which elastic                           constant calculations are to be performed.
 
 # Workflow
+
+![Figure1](https://user-images.githubusercontent.com/120595580/207714085-196181cf-5f77-46b5-9c53-b64c73da9e68.png)

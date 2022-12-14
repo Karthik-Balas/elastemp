@@ -13,7 +13,7 @@ To run vasp calculations, user needs to input
 6. dim.txt (optional) - a default dim.txt file with default values 2 2 2 will be provided. This file contains the dimensions needed to make supercells for                         phonon calculations. For best results, users need to tune it depending on the structure.
 7. tmax.txt (optional) - a default tmax.txt file with defualt value of 1000 will be provided. This file contains the maximum temperature at which elastic                           constant calculations are to be performed.
 
-## Workflow
+# Workflow
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/120595580/207714085-196181cf-5f77-46b5-9c53-b64c73da9e68.png" width="600" height="600">
@@ -21,3 +21,4 @@ To run vasp calculations, user needs to input
 
 The workflow consists of three modules -  Getting zero temp elastic constants, Getting thermal expansion coeff and Getting elastic constants at temp T. 
 
+## Getting zero temp. elastic constants (Steps 1 & 2)

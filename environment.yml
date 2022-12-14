@@ -1,0 +1,10 @@
+name : Elastemp-env
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+    - pandas==1.4.2
+    - pymatgen
+    - numpy==1.22.3
+    - matplotlib==3.5.2
+    - phonopy

@@ -6,7 +6,7 @@ Elastemp is a quasi harmonic approximation to estimate temperature dependent ela
 Python packages needed to run this code are numpy, matplotlib, pandas, pymatgen and phonopy. Users can either pip these or use the more convenient environment.yml file as
 
 conda env create -f environment.yml
-conda activate myenv
+conda activate Elastemp-env
 
 # Files needed 
 
@@ -20,6 +20,7 @@ To run vasp calculations, user needs to input
 7. tmax.txt (optional) - a default tmax.txt file with defualt value of 1000 will be provided. This file contains the maximum temperature at which elastic                           constant calculations are to be performed.
 8. KPOINTS_dynamic (optional) - a default KPOINTS file for dynamic calculations will be provided. But for best results, users need to tune it depending                                   on the structure. 
 9. INCAR_dynamic (optional) - a default INCAR file for dynamic calculations will be provided. But for best results, users need to tune it depending                                   on the structure. 
+10. mesh.conf           - This is automatically created by Elastemp and needed for phonopy calculations.
 
 # Workflow
 
@@ -61,5 +62,17 @@ python command : python3 elastic_input.py --operations get_elastic
  python command : python3 elastic_input.py --operations make_bulk_dynamic
  
  1. This creates files in the deformation bulk folder using phonopy. 
+ 2. Users needs to run vasp dfpt calculations in deformation-bulk/strain/Phonon_calculation folders. Currently, we support only DFPT calculations. 
  
+ ### Step 4: This extracts results from phonon calculations in deformation-bulk folder. 
+ 
+ python command : python3 elastic_input.py --operations get_bulk_dynamic
+ 
+ 1. The force constants are extracted by phonopy and QHA calculations are done to get Helmholtz energies. Birch-murnaghan equation of state is fit to get equilibrium volumes at different temps.
+ 2. The following files are written to results_dir.<br/>
+    a. volume_temp.txt - file containing equilibrium volumes, thermal expansion coefficient at all temperatures.\
+    b. Plot of thermal expansion coefficient vs temperature.\
+ 3. The scaling factor of lattice parameters corresponding to the structure at tmax is calculated. 
+ 
+ ## Getting elastic constants at high temperature. 
  

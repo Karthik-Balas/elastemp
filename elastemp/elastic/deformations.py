@@ -8,7 +8,19 @@ from elastemp.base.strain_analysis import get_strain_matrix as smv
 from elastemp.base.symmetry import get_num_constants 
 
 class parent_def:
+     """
+    Class parent_def which is inherited by the subsequent classes to create folders.
+    """
     def __init__(self,struct,symmetry,strain_values):
+         """ Constructor function for parent_def class
+        :param struct        : Reference structure
+               symmetry      : symmetry of the reference structure
+               strain_values : list of strain values
+        :type  struct        : Pymatgen structure object
+               symmetry      : plaintext file
+               strain_values : list
+        :returns None.calls make_folders function
+        """
         self.struct = struct
         self.symmetry = symmetry
         self.strain_values = strain_values
@@ -17,6 +29,11 @@ class parent_def:
         
     
     def make_folders(self):
+         """ Function to make folders in which vasp calculations are run.
+        :param   None
+        :returns creates num_constants + 1 folders and subfolders corresponding to strain values to run vasp calculations.
+        :rtype   folders
+        """
         for k in range(1,self.num_constants+2):
             if os.path.exists('deformation-{}'.format(k)):
                 shutil.rmtree('deformation-{}'.format(k))
@@ -31,8 +48,20 @@ class parent_def:
     
 
 class cubic_def(parent_def):
+    """
+    Class to create deformations for cubic structures
+    """
     def __init__(self,struct,symmetry,strain_values):
         super().__init__(struct,symmetry,strain_values)
+        """
+        Constructor function which inherits from parent_def parent class
+        :param struct   : Reference structure
+               symmetry : Symmetry of reference structure
+               strain_values : list of strain values
+        :type  struct   : Pymatgen structure object
+               strain_values : list
+               symmetry  : plaintext file
+        """
         self.struct = struct
         self.strain_values = strain_values
         self.symmetry = symmetry

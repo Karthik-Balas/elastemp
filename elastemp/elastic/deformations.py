@@ -8,11 +8,11 @@ from elastemp.base.strain_analysis import get_strain_matrix as smv
 from elastemp.base.symmetry import get_num_constants 
 
 class parent_def:
-     """
+    """
     Class parent_def which is inherited by the subsequent classes to create folders.
     """
     def __init__(self,struct,symmetry,strain_values):
-         """ Constructor function for parent_def class
+        """ Constructor function for parent_def class
         :param struct        : Reference structure
                symmetry      : symmetry of the reference structure
                strain_values : list of strain values
@@ -29,7 +29,7 @@ class parent_def:
         
     
     def make_folders(self):
-         """ Function to make folders in which vasp calculations are run.
+        """ Function to make folders in which vasp calculations are run.
         :param   None
         :returns creates num_constants + 1 folders and subfolders corresponding to strain values to run vasp calculations.
         :rtype   folders

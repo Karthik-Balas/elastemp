@@ -93,12 +93,13 @@ class compute_elastic_constants:
             c[0][0] = curvatures[0]-c[0][1]
             c[2][2] = 2*curvatures[2]
             c[3][3] = curvatures[3]
-            c[0][2] = (curvatures[4]-c[0][0]-c[0][1]-(c[2][2]/2))
+            c[0][2] = (curvatures[4]-c[0][0]-c[0][1]-(c[2][2]/2))/2
             c[0][3] = curvatures[5]-(c[0][0]/4)+(c[0][1]/4)-(c[3][3]/2)
             c[1][1] = c[0][0]
             c[1][2] = c[0][2]
             c[1][3] = -c[0][3]
             c[4][5] = c[0][3]
+            c[4][4] = c[3][3]
             c[5][5] = (c[0][0]-c[0][1])/2
             c = mirror(c)
         

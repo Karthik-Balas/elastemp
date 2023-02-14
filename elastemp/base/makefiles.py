@@ -37,7 +37,7 @@ def make_kpt_static():
     :returns KPOINTS file
     :rtype plaintext file
     """
-    kpt_string="Automatic\n0\nGamma\n%2i %2i %2i\n 0. 0. 0.\n" %(12,12,12)
+    kpt_string="Automatic\n0\nGamma\n%2i %2i %2i\n 0. 0. 0.\n" %(14,14,14)
     f = open('KPOINTS','w')
     f.write(kpt_string)
     f.close()

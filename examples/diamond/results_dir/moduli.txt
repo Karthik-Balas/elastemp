@@ -1,0 +1,18 @@
+************************************************************
+Voigt bulk modulus =440.884 GPa
+ Voigt shear modulus =577.322 GPa
+ Voigt elastic modulus =1205.6945 GPa
+
+ Reuss bulk modulus =440.884 GPa
+ Reuss shear modulus =519.3631 GPa
+ Reuss elastic modulus =1118.7801 GPa
+
+ Hill bulk modulus = 440.884 GPa
+Hill shear modulus = 548.3426 GPa
+Hill elastic modulus = 1162.2373 GPa
+
+------------------------------------------------------------------------------------------------------------------------
+poisson ratio = 0.0708.	. Classified as Brittle (poisson ratio less than 0.28 classified as brittle, else ductile)
+pugh's ratio = 1.2437.	. Classified as Brittle (pugh's ratio greater than 0.5 classified as brittle, else ductile)
+Hardness from Chen's model = 100.322 GPa
+************************************************************

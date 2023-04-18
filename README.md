@@ -6,6 +6,7 @@ Elastemp is a quasi harmonic approximation to estimate temperature dependent ela
 Python packages needed to run this code are numpy, matplotlib, pandas, pymatgen and phonopy. Users can either pip these or use the more convenient environment.yml file as
 
 conda env create -f environment.yml
+
 conda activate Elastemp-env
 
 # Files needed 

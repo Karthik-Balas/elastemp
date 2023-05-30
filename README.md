@@ -122,5 +122,7 @@ python command : python3 elastic_input.py --operations get_elastic
 
 If you use our work, please cite the following paper in your work. 
 
-'Currently unavailable'
+"Karthik Balasubramanian, Sukriti Manna, Subramanian K.R.S. Sankaranarayanan,
+Elastemp — A workflow to compute the quasi-harmonic temperature dependent elastic constants of materials,
+Computational Materials Science,Volume 226, 2023"
 

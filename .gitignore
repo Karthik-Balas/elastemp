@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.egg-info/
+build/
+dist/
+elastemp.log
+.pytest_cache/
+.ruff_cache/
+*.whl
+
+# Local secrets (API keys)
+.env

@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elastemp"
+dynamic = ["version"]
+description = "Quasi-harmonic temperature-dependent elastic constants from VASP and phonopy"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Karthik Balasubramanian" }]
+requires-python = ">=3.10"
+keywords = ["elastic constants", "quasi-harmonic approximation", "VASP", "phonopy", "DFT", "materials science"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
+dependencies = [
+    "numpy>=1.22",
+    "pandas>=1.4",
+    "matplotlib>=3.5",
+    "pyyaml>=6.0",
+    "pymatgen>=2023.1.1",
+    "phonopy>=2.17,<4",
+]
+
+[project.optional-dependencies]
+agent = ["langgraph>=1.0", "langchain-anthropic>=1.0"]
+test = ["pytest>=7", "langgraph>=1.0", "langchain-anthropic>=1.0"]
+dev = ["pytest>=7", "build", "twine", "ruff"]
+
+[project.scripts]
+elastemp = "elastemp.cli:main"
+elastemp-agent = "elastemp.agent.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Karthik-Balas/elastemp"
+Source = "https://github.com/Karthik-Balas/elastemp"
+Issues = "https://github.com/Karthik-Balas/elastemp/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "elastemp.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["N801"]

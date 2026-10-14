@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented here.
 
+## [0.2.2]
+
+* The LLM agent has moved to its own package, [agentic-elastemp](https://github.com/Karthik-Balas/agentic-elastemp) (`pip install agentic-elastemp`). elastemp no longer has the `[agent]` extra or the `elastemp-agent` command, and has no LLM dependencies. The physics workflow is unchanged from 0.2.1.
+
 ## [0.2.1]
 
 * Default strains.txt now has 11 values (-0.05 to 0.05 in steps of 0.01) instead of 7, so a failed VASP run can be dropped without falling below the 7-point minimum.

@@ -31,13 +31,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-agent = ["langgraph>=1.0", "langchain-anthropic>=1.0"]
-test = ["pytest>=7", "langgraph>=1.0", "langchain-anthropic>=1.0"]
+test = ["pytest>=7"]
 dev = ["pytest>=7", "build", "twine", "ruff"]
 
 [project.scripts]
 elastemp = "elastemp.cli:main"
-elastemp-agent = "elastemp.agent.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Karthik-Balas/elastemp"

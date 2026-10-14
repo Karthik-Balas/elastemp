@@ -26,32 +26,9 @@ The old `python3 elastic_input.py --operations <step>` still works: the script i
 
 To run a step on a project in another folder, add `--workdir <project folder>`. Nothing is read from or written to the folder you run the command from.
 
-# The elastemp agent (optional)
+# Agent
 
-An assistant you can ask about a project in plain language. It is built with LangGraph and uses Claude. It can tell you where a project stands, run the next analysis step, explain why a VASP run failed, and summarize the results. It never runs or submits VASP jobs; you still do that.
-
-```
-pip install "elastemp[agent]"
-cp .env.example .env          # then put your Claude API key in .env
-elastemp-agent --workdir runs/TiN
-```
-
-You can also ask a single question: `elastemp-agent --workdir runs/TiN --ask "What should I run next?"`.
-
-**API key:** the agent reads `ANTHROPIC_API_KEY` from the environment or from a `.env` file in the current or project folder. `.env` is in `.gitignore`. Never commit a real key; `.env.example` holds empty placeholders only. Set `ELASTEMP_AGENT_MODEL` in `.env` (or pass `--model`) to choose the Claude model.
-
-**What it can do** (its four tools):
-
-| Tool | Purpose |
-|---|---|
-| `project_status` | Which steps are done, which VASP runs are finished, failed or missing, and what comes next |
-| `run_step` | Run one workflow step. A step that would delete finished VASP runs (for example rerunning `make_bulk_dynamic`) is refused unless you explicitly confirm |
-| `inspect_run` | Convergence verdict and OSZICAR/OUTCAR evidence for one run |
-| `read_results` | Elastic constants, moduli, stability, temperature dependence, consistency checks and flags |
-
-**Number check:** every number in the agent's answer is compared, in code, with the tool results. If it states a value that came from nowhere (an "experimental" value from memory, say), it is asked to rewrite the answer once. If it still does, the answer is shown with an `[Unverified: ...]` note.
-
-The physics package never imports the agent, so `pip install elastemp` without `[agent]` installs no LLM libraries.
+An LLM agent for this workflow (built with LangGraph and Claude) is available as a separate package, [agentic-elastemp](https://github.com/Karthik-Balas/agentic-elastemp): `pip install agentic-elastemp`. It answers questions about a project, runs steps on request, explains failed VASP runs and summarizes results. elastemp itself has no LLM dependencies.
 
 # Using elastemp from Python
 
